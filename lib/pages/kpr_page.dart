@@ -10,6 +10,6 @@ class KprPage extends StatefulWidget {
 class _KprPageState extends State<KprPage> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Column(children: const [Text('KPR Page')]);
   }
 }
