@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nusacodes_final_project/constants/my_color.dart';
 import 'package:nusacodes_final_project/pages/home_page.dart';
 import 'package:nusacodes_final_project/pages/kpr_page.dart';
 import 'package:nusacodes_final_project/pages/setting_page.dart';
@@ -17,9 +18,10 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppbarWidget(appBarColor: Colors.blueAccent),
+      appBar: AppbarWidget(),
       body: [HomePage(), KprPage(), SettingPage()][index],
       bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: MyColor.bluePrimary,
         currentIndex: index,
         onTap: (value) {
           setState(() {

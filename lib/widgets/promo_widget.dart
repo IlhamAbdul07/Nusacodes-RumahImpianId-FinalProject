@@ -1,20 +1,20 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
-class BannerWidget extends StatelessWidget {
-  const BannerWidget({super.key});
+class PromoWidget extends StatelessWidget {
+  const PromoWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final List<String> bannerImages = [
-      'assets/images/banner1.png',
-      'assets/images/banner2.png',
-      'assets/images/banner3.png',
+    final List<String> promoImages = [
+      'assets/images/promo1.png',
+      'assets/images/promo2.png',
+      'assets/images/promo3.png',
     ];
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: CarouselSlider(
-        items: bannerImages
+        items: promoImages
             .map(
               (item) => ClipRRect(
                 borderRadius: BorderRadius.circular(8.0),
@@ -27,7 +27,7 @@ class BannerWidget extends StatelessWidget {
             )
             .toList(),
         options: CarouselOptions(
-          height: 150.0,
+          height: 100.0,
           autoPlay: true,
           enlargeCenterPage: true,
           aspectRatio: 16 / 9,
