@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:nusacodes_final_project/constants/detail_home.dart';
+import 'package:nusacodes_final_project/pages/detail_home_page.dart';
 import 'package:nusacodes_final_project/widgets/banner_widget.dart';
+import 'package:nusacodes_final_project/widgets/home_card.dart';
 import 'package:nusacodes_final_project/widgets/promo_widget.dart';
 
 class HomePage extends StatefulWidget {
@@ -77,59 +80,27 @@ class _HomePageState extends State<HomePage> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: SizedBox(
-                height: 150,
-                child: ListView(
+                height: 275,
+                child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  children: [
-                    Container(
-                      width: 120,
-                      margin: const EdgeInsets.symmetric(horizontal: 8),
-                      decoration: BoxDecoration(
-                        color: Colors.purpleAccent,
-                        borderRadius: BorderRadius.circular(16),
+                  itemCount: detailProducts.length,
+                  itemBuilder: (context, index) {
+                    final house = detailProducts[index];
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DetailHomePage(house: house),
+                          ),
+                        );
+                      },
+                      child: SizedBox(
+                        width: 200, // kasih lebar untuk tiap card
+                        child: HomeCard(house: house),
                       ),
-                    ),
-                    Container(
-                      width: 120,
-                      margin: const EdgeInsets.symmetric(horizontal: 8),
-                      decoration: BoxDecoration(
-                        color: Colors.orangeAccent,
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                    ),
-                    Container(
-                      width: 120,
-                      margin: const EdgeInsets.symmetric(horizontal: 8),
-                      decoration: BoxDecoration(
-                        color: Colors.lightBlueAccent,
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                    ),
-                    Container(
-                      width: 120,
-                      margin: const EdgeInsets.symmetric(horizontal: 8),
-                      decoration: BoxDecoration(
-                        color: Colors.purpleAccent,
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                    ),
-                    Container(
-                      width: 120,
-                      margin: const EdgeInsets.symmetric(horizontal: 8),
-                      decoration: BoxDecoration(
-                        color: Colors.orangeAccent,
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                    ),
-                    Container(
-                      width: 120,
-                      margin: const EdgeInsets.symmetric(horizontal: 8),
-                      decoration: BoxDecoration(
-                        color: Colors.lightBlueAccent,
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                    ),
-                  ],
+                    );
+                  },
                 ),
               ),
             ),
